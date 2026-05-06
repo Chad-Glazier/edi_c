@@ -6,8 +6,14 @@
  */
 
 #include <stdio.h>
+#include <emscripten.h>
 
 int main() {
 	printf("Hello, world!\n");
 	return 0;
+}
+
+EMSCRIPTEN_KEEPALIVE
+int add(int a, int b) {
+	return a + b;
 }

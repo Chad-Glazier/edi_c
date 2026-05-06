@@ -15,5 +15,22 @@ emcc src/main.c -o build/edi.js
 To build an aggressively optimized version suitable for production, run
 
 ```sh
-emcc -O2 src/main.c -o build/edi.js
+emcc -O3 src/main.c -o build/edi.js
 ```
+
+To access functions declared in the project from JavaScript, you can use `Module._cFuncName` where `cFuncName` is the name of the global in the C code (note that the `_` prefix is added when accessing it). 
+
+> **NOTE:** Emscripten will eliminate dead code, and LLVM will aggressively inline functions. Both of these behaviors can prevent global C objects from appearing in the JavaScript `Module` object. If you want to skip these behaviors and force Emscripten to export a function, you need to use the `EMSCRIPTEN_KEEPALIVE` macro. For example,
+
+```c
+#include <emscripten.h>
+
+EMSCRIPTEN_KEEPALIVE
+void some_c_func() {
+	// ...
+}
+```
+
+## Testing
+
+Tests are implemented for [Emscripten's test runner](https://emscripten.org/docs/getting_started/test-suite.html#emscripten-test-suite). 
