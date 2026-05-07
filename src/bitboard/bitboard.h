@@ -2,6 +2,7 @@
 #define BITBOARD_H
 
 #include <stdint.h>
+#include <stdbool.h>
 
 // Represents a position on the 10x10 Amazons board with an index from 0 to 99.
 // We use row-major ordering, so you can get the row index with position / 10
@@ -20,6 +21,29 @@ typedef struct {
 	uint64_t hi;
 } BitBoard;
 
-void flag(BitBoard* bb, Position pos)
+void flag(BitBoard* bb, Position pos);
+void unflag(BitBoard* bb, Position pos);
+bool flagged(BitBoard* bb, Position pos);
+bool empty(BitBoard* bb);
+bool not_empty(BitBoard* bb);
+Position next(BitBoard* bb);
+
+int count(BitBoard* bb);
+Position lsb(BitBoard* bb);
+Position msb(BitBoard* bb);
+
+BitBoard Or(BitBoard* a, BitBoard* b);
+BitBoard Xor(BitBoard* a, BitBoard* b);
+BitBoard And(BitBoard* a, BitBoard* b);
+BitBoard AndNot(BitBoard* a, BitBoard* b);
+BitBoard Not(BitBoard* a);
+
+void AssignOr(BitBoard* a, BitBoard b);
+void AssignXor(BitBoard* a, BitBoard* b);
+void AssignAnd(BitBoard* a, BitBoard* b);
+void AssignAndNot(BitBoard* a, BitBoard* b);
+void AssignNot(BitBoard* a);
+
+#include "bitboard.c"
 
 #endif
