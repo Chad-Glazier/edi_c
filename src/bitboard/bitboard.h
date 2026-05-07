@@ -32,17 +32,17 @@ int count(BitBoard* bb);
 Position lsb(BitBoard* bb);
 Position msb(BitBoard* bb);
 
-BitBoard Or(BitBoard* a, BitBoard* b);
-BitBoard Xor(BitBoard* a, BitBoard* b);
-BitBoard And(BitBoard* a, BitBoard* b);
-BitBoard AndNot(BitBoard* a, BitBoard* b);
-BitBoard Not(BitBoard* a);
+BitBoard or(BitBoard* a, BitBoard* b);
+BitBoard xor(BitBoard* a, BitBoard* b);
+BitBoard and(BitBoard* a, BitBoard* b);
+BitBoard and_not(BitBoard* a, BitBoard* b);
+BitBoard not(BitBoard* a);
 
-void AssignOr(BitBoard* a, BitBoard b);
-void AssignXor(BitBoard* a, BitBoard* b);
-void AssignAnd(BitBoard* a, BitBoard* b);
-void AssignAndNot(BitBoard* a, BitBoard* b);
-void AssignNot(BitBoard* a);
+void assign_or(BitBoard* a, BitBoard b);
+void assign_xor(BitBoard* a, BitBoard* b);
+void assign_and(BitBoard* a, BitBoard* b);
+void assign_and_not(BitBoard* a, BitBoard* b);
+void assign_not(BitBoard* a);
 
 #include "bitboard.c"
 

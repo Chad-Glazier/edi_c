@@ -86,7 +86,7 @@ Position msb(BitBoard* bb) {
 }
 
 // Performs a bitwise OR operation (a | b) and returns the result.
-BitBoard Or(BitBoard* a, BitBoard* b) {
+BitBoard or(BitBoard* a, BitBoard* b) {
 	BitBoard r = {
 		.lo = a->lo | b->lo,
 		.hi = a->hi | b->hi,
@@ -95,13 +95,13 @@ BitBoard Or(BitBoard* a, BitBoard* b) {
 }
 
 // Performs a bitwise OR operation (a | b) and assigns the result to a.
-void AssignOr(BitBoard* a, BitBoard b) {
+void assign_or(BitBoard* a, BitBoard b) {
 	a->lo |= b.lo;
 	a->hi |= b.hi;
 }
 
 // Performs a bitwise XOR operation (a ^ b) and returns the result.
-BitBoard Xor(BitBoard* a, BitBoard* b) {
+BitBoard xor(BitBoard* a, BitBoard* b) {
 	BitBoard r = {
 		.lo = a->lo ^ b->lo,
 		.hi = a->hi ^ b->hi,
@@ -110,13 +110,13 @@ BitBoard Xor(BitBoard* a, BitBoard* b) {
 }
 
 // Performs a bitwise XOR operation (a ^ b) and assigns the result to a.
-void AssignXor(BitBoard* a, BitBoard* b) {
+void assign_xor(BitBoard* a, BitBoard* b) {
 	a->lo ^= b->lo;
 	a->hi ^= b->hi;
 }
 
 // Performs a bitwise AND operation (a & b) and returns the result.
-BitBoard And(BitBoard* a, BitBoard* b) {
+BitBoard and(BitBoard* a, BitBoard* b) {
 	BitBoard r = {
 		.lo = a->lo & b->lo,
 		.hi = a->hi & b->hi,
@@ -125,13 +125,13 @@ BitBoard And(BitBoard* a, BitBoard* b) {
 }
 
 // Performs a bitwise AND operation (a & b) and assigns the result to a.
-void AssignAnd(BitBoard* a, BitBoard* b) {
+void assign_and(BitBoard* a, BitBoard* b) {
 	a->lo &= b->lo;
 	a->hi &= b->hi;
 }
 
 // Performs a bitwise AND-NOT operation (a &^ b) and returns the result.
-BitBoard AndNot(BitBoard* a, BitBoard* b) {
+BitBoard and_not(BitBoard* a, BitBoard* b) {
 	BitBoard r = {
 		.lo = a->lo & (~b->lo),
 		.hi = a->hi & (~b->hi),
@@ -140,13 +140,13 @@ BitBoard AndNot(BitBoard* a, BitBoard* b) {
 }
 
 // Performs a bitwise AND-NOT operation (a &^ b) and assigns the result to a.
-void AssignAndNot(BitBoard* a, BitBoard* b) {
+void assign_and_not(BitBoard* a, BitBoard* b) {
 	a->lo &= ~b->lo;
 	a->hi &= ~b->hi;
 }
 
 // Performs a bitwise NOT operation (a ^ b) and returns the result.
-BitBoard Not(BitBoard* a) {
+BitBoard not(BitBoard* a) {
 	BitBoard r = {
 		.lo = ~a->lo,
 		.hi = ~a->hi,
@@ -155,7 +155,7 @@ BitBoard Not(BitBoard* a) {
 }
 
 // Performs a bitwise NOT operation (a ^ b) and assigns the result to a.
-void AssignNot(BitBoard* a) {
+void assign_not(BitBoard* a) {
 	a->lo = ~a->lo;
 	a->hi = ~a->hi;
 }
